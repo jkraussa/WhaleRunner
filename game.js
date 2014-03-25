@@ -1740,9 +1740,9 @@ if (place_meeting(this.x, this.y, obj_eatmask) && this.counted == 0 && instance_
 	global.count = global.count +1;
 	global.pot = global.pot +1;
 	global.pot1 = global.pot1 +1;
-	global.pot1 = global.pot2 +1;
-	global.pot1 = global.pot3 +1;
-	global.pot1 = global.pot4 +1;
+	global.pot2 = global.pot2 +1;
+	global.pot3 = global.pot3 +1;
+	global.pot4 = global.pot4 +1;
 	instance_create(0,16,obj_counted);
 	sound_play(sound_count);
 	sound_play(global.ding);
@@ -1806,9 +1806,9 @@ if (place_meeting(this.x, this.y, obj_eatmask) && this.counted == 0 && instance_
 	global.count = global.count +1;
 	global.pot = global.pot +1;
 	global.pot1 = global.pot1 +1;
-	global.pot1 = global.pot2 +1;
-	global.pot1 = global.pot3 +1;
-	global.pot1 = global.pot4 +1;
+	global.pot2 = global.pot2 +1;
+	global.pot3 = global.pot3 +1;
+	global.pot4 = global.pot4 +1;
 	instance_create(0,16,obj_counted);
 	sound_play(sound_count);
 	sound_play(global.ding);
@@ -1879,9 +1879,9 @@ if (place_meeting(this.x, this.y, obj_eatmask) && this.counted == 0 && instance_
 	global.count = global.count +1;
 	global.pot = global.pot +1;
 	global.pot1 = global.pot1 +1;
-	global.pot1 = global.pot2 +1;
-	global.pot1 = global.pot3 +1;
-	global.pot1 = global.pot4 +1;
+	global.pot2 = global.pot2 +1;
+	global.pot3 = global.pot3 +1;
+	global.pot4 = global.pot4 +1;
 	instance_create(0,16,obj_counted);
 	sound_play(sound_count);
 	sound_play(global.ding);
@@ -2217,8 +2217,11 @@ if (global.count > 10 || global.count == 10){
 	if (instance_list(obj_body)[0].lose == 0){
 		draw_text(16,64,global.count);
 		};
-	if (instance_list(obj_body)[0].lose == 1){
+	if (instance_list(obj_body)[0].lose == 1 && global.count < 100){
 		draw_text(400-16-96,128+64,global.count);
+		};
+	if (instance_list(obj_body)[0].lose == 1 && global.count > 100){
+		draw_text(400-48-96,128+64,global.count);
 		};
 };
 }
@@ -3027,7 +3030,8 @@ __instance_init__(this, obj_init1, null, 1, 0, spr_but, 1, 54);
 this.on_creation = function() {
 with(this) {
 this.image_speed = 0.05;
-this.x = choose(256,544);
+//this.x = choose(256,544);
+this.x = 256;
 this.y = 320;
 this.ding = 0;
 }
