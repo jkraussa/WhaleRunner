@@ -1583,6 +1583,8 @@ this.image_alpha = 0;
 sound_play(sound_jump);
 global.ding = choose(sound_ding1,sound_ding2);
 sound_play(music_low);
+sound_volume(sound_bite1, 1);
+sound_volume(sound_bite2, 1);
 hide_mouse();
 }
 };
